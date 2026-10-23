@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estación 05 — Acabado y Color | Guía de Inspiración DigiToys</title>
+    <title>Estación 05 — Acabado & Color | DigiToys 2.5D</title>
     <style>
         :root {
             --bg-main: #f8fafc;
@@ -117,10 +117,10 @@
             border-color: #bae6fd;
         }
 
-        .char-item img {
+        .char-item svg {
             width: 32px;
             height: 32px;
-            object-fit: contain;
+            flex-shrink: 0;
         }
 
         .char-item-info {
@@ -128,7 +128,7 @@
         }
 
         .char-item-name {
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 600;
             color: var(--text-title);
         }
@@ -138,7 +138,7 @@
         }
 
         .char-item-meta {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
         }
 
@@ -188,27 +188,27 @@
         }
 
         .silhouette-display {
-            width: 240px;
-            height: 240px;
+            width: 250px;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #f8fafc;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 2px dashed #cbd5e1;
-            padding: 16px;
+            padding: 20px;
             margin-bottom: 24px;
             position: relative;
         }
 
-        .silhouette-display img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: filter 0.2s;
+        .silhouette-display svg {
+            width: 100%;
+            height: 100%;
+            transition: all 0.25s ease;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.08));
         }
 
-        /* Controles de color base */
+        /* Selector de color de filamento */
         .color-selector-label {
             font-size: 0.8rem;
             font-weight: 600;
@@ -219,14 +219,14 @@
 
         .swatches-row {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
             margin-bottom: 24px;
         }
 
         .swatch-btn {
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 2px solid #cbd5e1;
             cursor: pointer;
@@ -339,6 +339,15 @@
             margin-bottom: 12px;
         }
 
+        .card-preview-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            background: #f8fafc;
+            display: block;
+        }
+
         .palette-row {
             display: flex;
             gap: 6px;
@@ -347,9 +356,9 @@
 
         .palette-chip {
             flex: 1;
-            height: 20px;
+            height: 22px;
             border-radius: 4px;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.1);
         }
 
         .tips-list {
@@ -367,12 +376,12 @@
     <header>
         <div class="header-title">
             <h1>ESTACIÓN 05 — ACABADO & COLOR</h1>
-            <p>Guía de inspiración visual y paletas de pintura acrílica para figuras impresas en 3D</p>
+            <p>Guía de inspiración visual y paletas de pintura acrílica para figuras 2.5D</p>
         </div>
         <div class="header-badges">
-            <span class="badge">Altura Estándar: 70 mm</span>
-            <span class="badge">Espesor: 10 mm</span>
-            <span class="badge highlight">Marcadores Acrílicos / Posca</span>
+            <span class="badge">Altura: 70 mm</span>
+            <span class="badge">Espesor: 10 mm (Boleado)</span>
+            <span class="badge highlight">Plumones Acrílicos / Posca</span>
         </div>
     </header>
 
@@ -388,40 +397,40 @@
             <div class="canvas-card">
                 <div class="canvas-header">
                     <div class="canvas-title" id="current-name">01 Dino Bebé 1</div>
-                    <div class="canvas-scale">Escala 1:1 (70 mm)</div>
+                    <div class="canvas-scale">Pieza 2.5D (70 mm)</div>
                 </div>
 
-                <div class="silhouette-display">
-                    <img id="current-img" src="../01_siluetas_svg/01_dino_bebe_1.svg" alt="Silueta oficial">
+                <div class="silhouette-display" id="silhouette-box">
+                    <!-- SVG inyectado dinámicamente con color de filamento -->
                 </div>
 
-                <div class="color-selector-label">Color base del filamento 3D:</div>
+                <div class="color-selector-label">Color base del filamento 3D (Haz clic para cambiar):</div>
                 <div class="swatches-row">
-                    <button class="swatch-btn active" style="background: #1e293b;" title="Negro Mate" onclick="setBaseColor('#1e293b', this)"></button>
-                    <button class="swatch-btn" style="background: #ffffff;" title="Blanco Hueso" onclick="setBaseColor('#ffffff', this)"></button>
-                    <button class="swatch-btn" style="background: #6ee7b7;" title="Verde Menta" onclick="setBaseColor('#6ee7b7', this)"></button>
-                    <button class="swatch-btn" style="background: #fde047;" title="Amarillo Pastel" onclick="setBaseColor('#fde047', this)"></button>
-                    <button class="swatch-btn" style="background: #c4b5fd;" title="Lila Pastel" onclick="setBaseColor('#c4b5fd', this)"></button>
-                    <button class="swatch-btn" style="background: #fdba74;" title="Naranja Melocotón" onclick="setBaseColor('#fdba74', this)"></button>
+                    <button class="swatch-btn active" style="background: #10b981;" title="PLA Verde Menta" onclick="setFilamentColor('#10b981', this)"></button>
+                    <button class="swatch-btn" style="background: #c4b5fd;" title="PLA Lila Pastel" onclick="setFilamentColor('#c4b5fd', this)"></button>
+                    <button class="swatch-btn" style="background: #06b6d4;" title="PLA Turquesa" onclick="setFilamentColor('#06b6d4', this)"></button>
+                    <button class="swatch-btn" style="background: #fde047;" title="PLA Amarillo" onclick="setFilamentColor('#fde047', this)"></button>
+                    <button class="swatch-btn" style="background: #ffffff;" title="PLA Blanco Hueso" onclick="setFilamentColor('#ffffff', this)"></button>
+                    <button class="swatch-btn" style="background: #1e293b;" title="PLA Negro Carbón" onclick="setFilamentColor('#1e293b', this)"></button>
                 </div>
 
                 <div class="steps-box">
-                    <h3>Pasos recomendados para pintar con plumones acrílicos:</h3>
+                    <h3>Pasos para pintar tu pieza 2.5D con plumones acrílicos:</h3>
                     <div class="step-item">
                         <div class="step-num">1</div>
-                        <div><strong>Capa de Base:</strong> Pinta grandes bloques de color claro primero (barriga, hocico, parches). Deja secar 2 minutos.</div>
+                        <div><strong>Capa de Base Plana:</strong> Pinta los bloques grandes de color claro primero (barriga, hocico, cresta). Deja secar 2 minutos.</div>
                     </div>
                     <div class="step-item">
                         <div class="step-num">2</div>
-                        <div><strong>Patrones & Texturas:</strong> Añade manchas, rayas, escamas o pecas con un segundo color contrastante.</div>
+                        <div><strong>Patrones & Texturas:</strong> Añade pecas, manchas o rayas con un segundo color contrastante.</div>
                     </div>
                     <div class="step-item">
                         <div class="step-num">3</div>
-                        <div><strong>Rasgos con Negro:</strong> Delinea ojos grandes, pestañas, cejas y sonrisa con un plumón negro de punta fina (0.7 mm o 1 mm).</div>
+                        <div><strong>Rasgos con Negro:</strong> Delinea ojos grandes, sonrisa y pestañas con plumón negro de punta fina (0.7 mm).</div>
                     </div>
                     <div class="step-item">
                         <div class="step-num">4</div>
-                        <div><strong>Brillos con Blanco:</strong> Coloca un punto de luz blanco en cada ojo y mejillas para dar vida y expresión instantánea.</div>
+                        <div><strong>Brillos con Blanco:</strong> Coloca un punto de luz blanco en cada ojo y mejilla para dar vida instantánea.</div>
                     </div>
                 </div>
             </div>
@@ -429,121 +438,167 @@
 
         <!-- Columna 3: 3 Opciones de Inspiración -->
         <aside class="sidebar-inspiration">
-            <div class="inspiration-title">Opciones de Estilo e Inspiración</div>
+            <div class="inspiration-title" id="inspiration-header">Inspiración 2.5D: 01 Dino Bebé 1</div>
 
-            <!-- Opción 1: Pop Color -->
-            <div class="card-style">
-                <span class="card-badge badge-pop">ESTILO 01</span>
-                <div class="card-name">Color Pop / Urbano</div>
-                <div class="card-desc">Colores vibrantes y saturados con líneas gráficas gruesas tipo vinilo o graffiti.</div>
-                <img src="inspiracion/01_dino_bebe_estilo_pop.jpg" alt="Estilo Pop" style="width: 100%; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border);">
-                <div class="palette-row">
-                    <div class="palette-chip" style="background: #10b981;" title="Verde Menta"></div>
-                    <div class="palette-chip" style="background: #fbbf24;" title="Amarillo Brillante"></div>
-                    <div class="palette-chip" style="background: #0f172a;" title="Negro Trazo"></div>
-                    <div class="palette-chip" style="background: #ffffff;" title="Blanco Brillo"></div>
+            <div id="inspiration-cards-container">
+                <!-- Tarjeta 1: Pop Color -->
+                <div class="card-style">
+                    <span class="card-badge badge-pop">ESTILO 01</span>
+                    <div class="card-name">Color Pop / Menta & Amarillo</div>
+                    <div class="card-desc">Plástico verde menta, barriga amarilla plana, ojos cartoon expresivos y mejillas rosas.</div>
+                    <img src="inspiracion/01_dino_bebe_25d_pop.jpg" alt="Estilo Pop 2.5D" class="card-preview-img">
+                    <div class="palette-row">
+                        <div class="palette-chip" style="background: #10b981;" title="Verde Menta (Base)"></div>
+                        <div class="palette-chip" style="background: #fbbf24;" title="Amarillo Brillante"></div>
+                        <div class="palette-chip" style="background: #f43f5e;" title="Rosa Mejillas"></div>
+                        <div class="palette-chip" style="background: #0f172a;" title="Negro Trazo"></div>
+                    </div>
+                    <ul class="tips-list">
+                        <li>Barriga pintada con doble pasada de amarillo Posca.</li>
+                        <li>Ojo grande con doble punto de luz blanco.</li>
+                    </ul>
                 </div>
-                <ul class="tips-list">
-                    <li>Ojos cartoon grandes con trazo negro definido.</li>
-                    <li>Placas dorsales en amarillo contrastante.</li>
-                </ul>
-            </div>
 
-            <!-- Opción 2: Kawaii Pastel -->
-            <div class="card-style">
-                <span class="card-badge badge-kawaii">ESTILO 02</span>
-                <div class="card-name">Pastel Kawaii / Tierno</div>
-                <div class="card-desc">Tonos suaves y dulces, caritas sonrientes y mejillas sonrosadas adorables.</div>
-                <img src="inspiracion/01_dino_bebe_estilo_kawaii.jpg" alt="Estilo Kawaii" style="width: 100%; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border);">
-                <div class="palette-row">
-                    <div class="palette-chip" style="background: #c4b5fd;" title="Lavanda Suave"></div>
-                    <div class="palette-chip" style="background: #fdba74;" title="Melocotón"></div>
-                    <div class="palette-chip" style="background: #f472b6;" title="Rosa Mejillas"></div>
-                    <div class="palette-chip" style="background: #ffffff;" title="Blanco Destellos"></div>
+                <!-- Tarjeta 2: Kawaii Pastel -->
+                <div class="card-style">
+                    <span class="card-badge badge-kawaii">ESTILO 02</span>
+                    <div class="card-name">Pastel Kawaii / Lila & Melocotón</div>
+                    <div class="card-desc">Plástico lila suave, barriga melocotón cálido, ojito manga con estrellas y mejillas difuminadas.</div>
+                    <img src="inspiracion/01_dino_bebe_25d_kawaii.jpg" alt="Estilo Kawaii 2.5D" class="card-preview-img">
+                    <div class="palette-row">
+                        <div class="palette-chip" style="background: #c4b5fd;" title="Lila Pastel (Base)"></div>
+                        <div class="palette-chip" style="background: #fdba74;" title="Melocotón Suave"></div>
+                        <div class="palette-chip" style="background: #f472b6;" title="Rosa Pastel"></div>
+                        <div class="palette-chip" style="background: #ffffff;" title="Blanco Destellos"></div>
+                    </div>
+                    <ul class="tips-list">
+                        <li>Tonos suaves ideales para niños pequeños.</li>
+                        <li>Brillos de estrellas en los ojos con plumón blanco fino.</li>
+                    </ul>
                 </div>
-                <ul class="tips-list">
-                    <li>Ojos tiernos con destellos de estrella blancos.</li>
-                    <li>Mejillas rosadas difuminadas con suavidad.</li>
-                </ul>
-            </div>
 
-            <!-- Opción 3: Monstruo Travieso -->
-            <div class="card-style">
-                <span class="card-badge badge-monster">ESTILO 03</span>
-                <div class="card-name">Monstruo Travieso / Texturado</div>
-                <div class="card-desc">Patrones tribales, manchas circulares, colmillitos y textura divertida.</div>
-                <img src="inspiracion/01_dino_bebe_estilo_monster.jpg" alt="Estilo Monster" style="width: 100%; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border);">
-                <div class="palette-row">
-                    <div class="palette-chip" style="background: #06b6d4;" title="Turquesa Intenso"></div>
-                    <div class="palette-chip" style="background: #f97316;" title="Naranja Fuego"></div>
-                    <div class="palette-chip" style="background: #0f172a;" title="Boca / Contorno"></div>
-                    <div class="palette-chip" style="background: #ffffff;" title="Dientes Blancos"></div>
+                <!-- Tarjeta 3: Monster Dino -->
+                <div class="card-style">
+                    <span class="card-badge badge-monster">ESTILO 03</span>
+                    <div class="card-name">Monstruo Travieso / Turquesa & Naranja</div>
+                    <div class="card-desc">Plástico turquesa eléctrico, manchas geométricas naranjas y sonrisa pícara con colmillito.</div>
+                    <img src="inspiracion/01_dino_bebe_25d_monster.jpg" alt="Estilo Monster 2.5D" class="card-preview-img">
+                    <div class="palette-row">
+                        <div class="palette-chip" style="background: #06b6d4;" title="Turquesa Eléctrico"></div>
+                        <div class="palette-chip" style="background: #f97316;" title="Naranja Intenso"></div>
+                        <div class="palette-chip" style="background: #0f172a;" title="Boca / Contorno"></div>
+                        <div class="palette-chip" style="background: #ffffff;" title="Dientes Blancos"></div>
+                    </div>
+                    <ul class="tips-list">
+                        <li>Manchas circulares de diferente diámetro sobre el lomo.</li>
+                        <li>Dientecito blanco triangular en la esquina de la boca.</li>
+                    </ul>
                 </div>
-                <ul class="tips-list">
-                    <li>Manchas y líneas punteadas sobre todo el cuerpo.</li>
-                    <li>Pequeños colmillos blancos sobre la sonrisa.</li>
-                </ul>
             </div>
         </aside>
     </div>
 
     <script>
-        const characters = [
-            { id: "01_dino_bebe_1", name: "01 Dino Bebé 1", file: "../01_siluetas_svg/01_dino_bebe_1.svg", type: "Reptil / Dino" },
-            { id: "02_dino_bebe_2", name: "02 Dino Bebé 2", file: "../01_siluetas_svg/02_dino_bebe_2.svg", type: "Reptil / Dino" },
-            { id: "03_fantasmita", name: "03 Fantasmita", file: "../01_siluetas_svg/03_fantasmita.svg", type: "Místico / Espíritu" },
-            { id: "04_frijolito", name: "04 Frijolito", file: "../01_siluetas_svg/04_frijolito.svg", type: "Criatura Pandilla" },
-            { id: "05_monstruo_cuernitos", name: "05 Monstruo Cuernitos", file: "../01_siluetas_svg/05_monstruo_cuernitos.svg", type: "3 Cuernos" },
-            { id: "06_mostrito_orejon", name: "06 Mostrito Orejón", file: "../01_siluetas_svg/06_mostrito_orejon.svg", type: "Orejas Puntiagudas" },
-            { id: "07_monstruo_espinoso", name: "07 Monstruo Espinoso", file: "../01_siluetas_svg/07_monstruo_espinoso.svg", type: "Cíclope con Púas" },
-            { id: "08_mostrito_periscopio", name: "08 Mostrito Periscopio", file: "../01_siluetas_svg/08_mostrito_periscopio.svg", type: "Ojos Gemelos" },
-            { id: "09_marciano_zog", name: "09 Marciano Zog", file: "../01_siluetas_svg/09_marciano_zog.svg", type: "Alien Antenas" },
-            { id: "10_monstruo_crestas", name: "10 Monstruo Crestas", file: "../01_siluetas_svg/10_monstruo_crestas.svg", type: "Crestas Dentadas" },
-            { id: "11_robot_bip_bop", name: "11 Robot Bip Bop", file: "../01_siluetas_svg/11_robot_bip_bop.svg", type: "Androide Retro" },
-            { id: "12_gato_miau", name: "12 Gato Miau", file: "../01_siluetas_svg/12_gato_miau.svg", type: "Felino con Bigotes" }
-        ];
+        let charactersData = [];
+        let currentIdx = 0;
+        let currentFilamentColor = "#10b981";
 
-        const charListEl = document.getElementById("character-list");
-        const currentNameEl = document.getElementById("current-name");
-        const currentImgEl = document.getElementById("current-img");
+        fetch('characters_data.json')
+            .then(res => res.json())
+            .then(data => {
+                charactersData = data;
+                initApp();
+            })
+            .catch(err => {
+                console.error("Could not load characters_data.json:", err);
+            });
 
-        function selectChar(idx) {
+        function initApp() {
+            const listEl = document.getElementById("character-list");
+            listEl.innerHTML = "";
+
+            charactersData.forEach((char, idx) => {
+                const item = document.createElement("div");
+                item.className = "char-item" + (idx === 0 ? " active" : "");
+                item.onclick = () => selectCharacter(idx);
+                item.innerHTML = `
+                    <svg viewBox="${char.viewBox}">
+                        <path d="${char.d}" fill="#64748b" />
+                    </svg>
+                    <div class="char-item-info">
+                        <div class="char-item-name">${char.name}</div>
+                        <div class="char-item-meta">${char.id.replace('_', ' ')}</div>
+                    </div>
+                `;
+                listEl.appendChild(item);
+            });
+
+            renderSilhouette();
+        }
+
+        function selectCharacter(idx) {
+            currentIdx = idx;
             document.querySelectorAll(".char-item").forEach((el, i) => {
                 el.classList.toggle("active", i === idx);
             });
-            const c = characters[idx];
-            currentNameEl.textContent = c.name;
-            currentImgEl.src = c.file;
+            const char = charactersData[idx];
+            document.getElementById("current-name").textContent = char.name;
+            document.getElementById("inspiration-header").textContent = `Inspiración 2.5D: ${char.name}`;
+            
+            renderSilhouette();
+
+            // Mensaje para personajes que aún no tienen fotos generadas
+            const container = document.getElementById("inspiration-cards-container");
+            if (idx === 0) {
+                // Dino Bebé 1 tiene las 3 fotos reales 2.5D
+                container.style.display = "block";
+            } else {
+                // Para los demás, mostramos guía de color y aviso pro
+                container.innerHTML = `
+                    <div class="card-style" style="text-align: center; padding: 30px 20px;">
+                        <span class="card-badge badge-pop">PALETA RECOMENDADA</span>
+                        <div class="card-name" style="margin-top: 10px;">${char.name}</div>
+                        <p class="card-desc" style="margin-top: 8px;">Usa los pasos de la columna central para pintar la pieza 2.5D con marcadores Posca.</p>
+                        <div class="palette-row" style="margin-top: 16px;">
+                            <div class="palette-chip" style="background: #3b82f6;" title="Azul"></div>
+                            <div class="palette-chip" style="background: #f59e0b;" title="Ámbar"></div>
+                            <div class="palette-chip" style="background: #10b981;" title="Esmeralda"></div>
+                            <div class="palette-chip" style="background: #0f172a;" title="Negro"></div>
+                            <div class="palette-chip" style="background: #ffffff;" title="Blanco"></div>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 0.78rem; color: var(--text-muted); background: #f1f5f9; padding: 12px; border-radius: 8px;">
+                            💡 <strong>Consejo del Facilitador:</strong> Haz clic en <strong>01 Dino Bebé 1</strong> para ver las 3 fotografías de muestra con acabado acrílico real.
+                        </div>
+                    </div>
+                `;
+            }
         }
 
-        characters.forEach((c, idx) => {
-            const item = document.createElement("div");
-            item.className = "char-item" + (idx === 0 ? " active" : "");
-            item.onclick = () => selectChar(idx);
-            item.innerHTML = `
-                <img src="${c.file}" alt="${c.name}">
-                <div class="char-item-info">
-                    <div class="char-item-name">${c.name}</div>
-                    <div class="char-item-meta">${c.type}</div>
-                </div>
+        function renderSilhouette() {
+            if (!charactersData.length) return;
+            const char = charactersData[currentIdx];
+            const box = document.getElementById("silhouette-box");
+            box.innerHTML = `
+                <svg viewBox="${char.viewBox}">
+                    <path id="svg-sil-path" d="${char.d}" fill="${currentFilamentColor}" stroke="${currentFilamentColor === '#ffffff' ? '#cbd5e1' : 'none'}" stroke-width="1.5" />
+                </svg>
             `;
-            charListEl.appendChild(item);
-        });
+        }
 
-        function setBaseColor(colorHex, btn) {
-            document.querySelectorAll(".swatch-btn").forEach(b => b.classList.remove("active"));
+        function setFilamentColor(colorHex, btn) {
+            currentFilamentColor = colorHex;
+            document.querySelectorAll(".swatches-row .swatch-btn").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
-            // Adjust SVG filter or background preview
-            const silDisplay = document.querySelector(".silhouette-display");
-            if (colorHex === "#1e293b") {
-                silDisplay.style.background = "#f8fafc";
-                currentImgEl.style.filter = "none";
-            } else if (colorHex === "#ffffff") {
-                silDisplay.style.background = "#0f172a";
-                currentImgEl.style.filter = "invert(1)";
-            } else {
-                silDisplay.style.background = colorHex;
-                currentImgEl.style.filter = "none";
+            
+            const path = document.getElementById("svg-sil-path");
+            if (path) {
+                path.setAttribute("fill", colorHex);
+                if (colorHex === "#ffffff") {
+                    path.setAttribute("stroke", "#cbd5e1");
+                    path.setAttribute("stroke-width", "1.5");
+                } else {
+                    path.setAttribute("stroke", "none");
+                }
             }
         }
     </script>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 793.70078739 1122.519685023" width="210mm" height="297mm">
+  <g id="LEGEND" font-family="Helvetica, Arial, sans-serif" font-size="8">
+    <text x="15mm" y="15mm" font-weight="bold" fill="#000000">CORTE LÁSER FAB LAB - CAJA DIGITOY (80x80x16 mm)</text>
+    <line x1="15mm" y1="20mm" x2="25mm" y2="20mm" stroke="#ff0000" stroke-width="0.8" />
+    <text x="28mm" y="22mm" fill="#ff0000">ROJO: Corte Vectorial (Hairline 0.01 mm)</text>
+    <line x1="85mm" y1="20mm" x2="95mm" y2="20mm" stroke="#0000ff" stroke-width="0.5" />
+    <text x="98mm" y="22mm" fill="#0000ff">AZUL: Marcado / Plecado Vectorial</text>
+  </g>
+  <!-- MARCADOS (AZUL) -->
+  <g id="SCORE_AZUL" stroke="#0000ff" stroke-width="0.5" fill="none">
+    <line x1="65.0mm" y1="51.0mm" x2="145.0mm" y2="51.0mm" />
+    <line x1="65.0mm" y1="67.0mm" x2="145.0mm" y2="67.0mm" />
+    <line x1="65.0mm" y1="147.0mm" x2="145.0mm" y2="147.0mm" />
+    <line x1="65.0mm" y1="163.00000000000003mm" x2="145.0mm" y2="163.00000000000003mm" />
+    <line x1="65.0mm" y1="243.00000000000003mm" x2="145.0mm" y2="243.00000000000003mm" />
+    <line x1="65.0mm" y1="67.0mm" x2="65.0mm" y2="147.0mm" />
+    <line x1="145.0mm" y1="67.0mm" x2="145.0mm" y2="147.0mm" />
+    <line x1="49.0mm" y1="67.0mm" x2="49.0mm" y2="147.0mm" />
+    <line x1="161.0mm" y1="67.0mm" x2="161.0mm" y2="147.0mm" />
+    <line x1="65.0mm" y1="163.00000000000003mm" x2="65.0mm" y2="243.00000000000003mm" />
+    <line x1="145.0mm" y1="163.00000000000003mm" x2="145.0mm" y2="243.00000000000003mm" />
+  </g>
+  <!-- CORTES (ROJO) -->
+  <g id="CUT_ROJO" stroke="#ff0000" stroke-width="0.8" fill="none">
+    <line x1="65.0mm" y1="51.0mm" x2="49.0mm" y2="51.0mm" />
+    <line x1="145.0mm" y1="51.0mm" x2="161.0mm" y2="51.0mm" />
+    <line x1="65.0mm" y1="147.0mm" x2="49.0mm" y2="147.0mm" />
+    <line x1="145.0mm" y1="147.0mm" x2="161.0mm" y2="147.0mm" />
+    <!-- Ventana calada en tapa -->
+    <rect x="83.00000000000001mm" y="184.00000000000003mm" width="44.0mm" height="44.0mm" rx="4mm" />
+  </g>
+  <!-- GRABADO (NEGRO) -->
+  <g id="ENGRAVE_NEGRO" font-family="Helvetica, Arial, sans-serif" fill="#000000">
+    <text x="105.0mm" y="236.00000000000003mm" font-size="8" font-weight="bold" text-anchor="middle">DIGITOY</text>
+  </g>
+</svg>
