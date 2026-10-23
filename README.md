@@ -9,11 +9,20 @@ Colección de 12 personajes oficiales (siluetas vectoriales SVG y modelos 3D STL
 ```text
 tinkilab_talleres/
 ├── pack_digitoys_12/
-│   ├── 01_siluetas_svg/          # 12 Siluetas vectoriales limpias (curvas Bézier pulidas en Inkscape)
-│   ├── 02_modelos_stl_10mm/      # 12 Modelos 3D STL (70 mm altura, 10 mm grosor, doble boleado)
-│   ├── preview_3d_pack12.png     # Vista previa de los 12 modelos 3D
-│   └── visor_3d_pack12.html      # Visor interactivo WebGL (Three.js)
-├── generate_stls_10mm.py         # Script generador automatizado de STLs a partir de SVGs
+│   ├── 01_siluetas_svg/               # 12 Siluetas vectoriales limpias (curvas Bézier pulidas en Inkscape)
+│   ├── 02_modelos_stl_10mm/           # 12 Modelos 3D STL (70 mm altura, 10 mm grosor, doble boleado simétrico)
+│   ├── 03_plantillas_impresion_pdf/   # Plantillas en PDF tamaño A4 (bandera blanca / neutrales):
+│   │   ├── 01_catalogo_seleccion_12_A4.pdf
+│   │   ├── 02_hojas_trabajo_diseno_12_A4.pdf
+│   │   └── 03_plantilla_diseno_libre_A4.pdf
+│   ├── 04_packaging_box/              # Plantilla plegable de caja para empaque (80x80x16 mm) en PDF y SVG
+│   ├── 05_acabado_color/              # Estación 05: Guía web de color, pasos de pintura y galería con IA
+│   ├── 01_lamina_siluetas_12.png      # Lámina general de siluetas 2D
+│   ├── preview_3d_pack12.png          # Vista previa 3D con doble curvatura
+│   └── visor_3d_pack12.html           # Visor interactivo WebGL (Three.js)
+├── generate_packaging_box.py          # Generador de dieline de caja de empaque
+├── generate_printable_worksheets.py   # Generador de hojas de trabajo y catálogo PDF
+├── generate_stls_10mm.py              # Generador automatizado de modelos 3D STL
 └── README.md
 ```
 

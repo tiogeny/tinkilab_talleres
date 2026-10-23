@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 841.89" width="210mm" height="297mm">
+  <style>
+    .cut { stroke: #000000; stroke-width: 1.5; fill: none; }
+    .fold { stroke: #0284c7; stroke-width: 1.0; stroke-dasharray: 4, 3; fill: none; }
+    .text { font-family: Helvetica, Arial, sans-serif; fill: #374151; }
+  </style>
+  <text x="56.7" y="56.7" class="text" font-size="14" font-weight="bold">PLANTILLA DE EMPAQUE DIGITOY (80x80x16 mm)</text>
+  <text x="56.7" y="73.7" class="text" font-size="9" fill="#6b7280">Corte continuo (Negro) | Pliegue (Azul punteado)</text>
+  <!-- Cut and Fold vectors -->
+  <rect x="184.25196850393704" y="189.9212598425197" width="226.7716535433071" height="226.7716535433071" class="fold" />
+  <rect x="184.25196850393704" y="462.0472440944883" width="226.7716535433071" height="226.7716535433071" class="fold" />
+</svg>
