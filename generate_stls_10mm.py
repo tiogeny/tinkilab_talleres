@@ -169,7 +169,7 @@ def generate_3d_stl_double_fillet(svg_path, out_stl_path, target_height=70.0, to
 
 def main():
     svg_dir = r"c:\Users\Henry\Documents\antigravity\tinkilab_talleres\pack_digitoys_12\01_siluetas_svg"
-    out_dir = r"c:\Users\Henry\Documents\antigravity\tinkilab_talleres\pack_digitoys_12\02_modelos_stl_10mm"
+    out_dir = r"c:\Users\Henry\Documents\antigravity\tinkilab_talleres\pack_digitoys_12\02_modelos_stl\10mm"
     os.makedirs(out_dir, exist_ok=True)
     
     svg_files = sorted(glob.glob(os.path.join(svg_dir, "*.svg")))

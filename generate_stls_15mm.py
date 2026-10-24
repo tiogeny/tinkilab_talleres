@@ -165,7 +165,7 @@ def generate_3d_stl_15mm(svg_path, out_stl_path, target_height=70.0, total_thick
 
 def main():
     svg_dir = r"c:\Users\Henry\Documents\antigravity\tinkilab_talleres\pack_digitoys_12\01_siluetas_svg"
-    out_dir = r"c:\Users\Henry\Documents\antigravity\tinkilab_talleres\pack_digitoys_12\02_modelos_stl_15mm"
+    out_dir = r"c:\Users\Henry\Documents\antigravity\tinkilab_talleres\pack_digitoys_12\02_modelos_stl\15mm"
     os.makedirs(out_dir, exist_ok=True)
     
     svg_files = sorted(glob.glob(os.path.join(svg_dir, "*.svg")))
