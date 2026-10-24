@@ -157,7 +157,7 @@ html_content = f'''<!DOCTYPE html>
             gap: 16px;
         }}
 
-        /* Tarjeta Superior: Silueta Proporcional Grande (150 mm escala visible) + Información */
+        /* Tarjeta Superior: Silueta Proporcional Grande (140 mm visible) + Información */
         .top-hero-card {{
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -430,76 +430,33 @@ html_content = f'''<!DOCTYPE html>
         const characters = {characters_json};
         let currentIdx = 0;
 
-        const dinoBebeCardsHTML = `
-            <!-- Tarjeta 1: Pop Color -->
-            <div class="render-card">
-                <div class="card-header-row">
-                    <span class="card-badge badge-pop">ESTILO 01</span>
-                    <span style="font-size: 0.68rem; color: #15803d; font-weight: 600;">1 Ojo Cartoon</span>
-                </div>
-                <div class="card-name">Color Pop / Menta & Amarillo</div>
-                <div class="card-desc">Cuerpo menta, barriga amarilla plana, ojo grande lateral con doble brillo blanco y mejilla rosa.</div>
-                <div class="render-img-box">
-                    <img src="inspiracion/01_dino_bebe_25d_pop.jpg" alt="Dino Bebe 2.5D Pop Color">
-                </div>
-                <div class="palette-row">
-                    <div class="palette-chip" style="background: #10b981;" title="Verde Menta (Base)"></div>
-                    <div class="palette-chip" style="background: #fbbf24;" title="Amarillo Brillante"></div>
-                    <div class="palette-chip" style="background: #f43f5e;" title="Rosa Mejillas"></div>
-                    <div class="palette-chip" style="background: #0f172a;" title="Negro Trazo"></div>
-                </div>
-                <ul class="tips-list">
-                    <li>Barriga pintada con doble pasada de amarillo Posca.</li>
-                    <li>Ojo grande cartoon con dos puntos de luz blancos.</li>
-                </ul>
-            </div>
-
-            <!-- Tarjeta 2: Kawaii Pastel -->
-            <div class="render-card">
-                <div class="card-header-row">
-                    <span class="card-badge badge-kawaii">ESTILO 02</span>
-                    <span style="font-size: 0.68rem; color: #6d28d9; font-weight: 600;">Ojo Manga / Estrella</span>
-                </div>
-                <div class="card-name">Pastel Kawaii / Lila & Melocotón</div>
-                <div class="card-desc">Cuerpo lila suave, barriga melocotón cálido, ojo manga con destello de estrella y rubor dulce.</div>
-                <div class="render-img-box">
-                    <img src="inspiracion/01_dino_bebe_25d_kawaii.jpg" alt="Dino Bebe 2.5D Kawaii Pastel">
-                </div>
-                <div class="palette-row">
-                    <div class="palette-chip" style="background: #c4b5fd;" title="Lila Pastel (Base)"></div>
-                    <div class="palette-chip" style="background: #fdba74;" title="Melocotón Suave"></div>
-                    <div class="palette-chip" style="background: #f472b6;" title="Rosa Pastel"></div>
-                    <div class="palette-chip" style="background: #ffffff;" title="Blanco Destellos"></div>
-                </div>
-                <ul class="tips-list">
-                    <li>Colores pastel relajantes ideales para los más pequeños.</li>
-                    <li>Destellos de estrella en el ojo con plumón blanco fino.</li>
-                </ul>
-            </div>
-
-            <!-- Tarjeta 3: Monster Texturado -->
-            <div class="render-card">
-                <div class="card-header-row">
-                    <span class="card-badge badge-monster">ESTILO 03</span>
-                    <span style="font-size: 0.68rem; color: #0369a1; font-weight: 600;">Monstruito / Colmillo</span>
-                </div>
-                <div class="card-name">Monstruo Travieso / Turquesa & Naranja</div>
-                <div class="card-desc">Cuerpo turquesa, manchas circulares naranjas en el lomo y sonrisa traviesa con colmillito blanco.</div>
-                <div class="render-img-box">
-                    <img src="inspiracion/01_dino_bebe_25d_monster.jpg" alt="Dino Bebe 2.5D Monster">
-                </div>
-                <div class="palette-row">
-                    <div class="palette-chip" style="background: #06b6d4;" title="Turquesa Eléctrico"></div>
-                    <div class="palette-chip" style="background: #f97316;" title="Naranja Intenso"></div>
-                    <div class="palette-chip" style="background: #0f172a;" title="Boca / Contorno"></div>
-                    <div class="palette-chip" style="background: #ffffff;" title="Dientes Blancos"></div>
-                </div>
-                <ul class="tips-list">
-                    <li>Manchas circulares de diferente diámetro en el lomo.</li>
-                    <li>Dientecito triangular blanco en la esquina de la boca.</li>
-                </ul>
-            </div>
-        `;
+        const characterRenders = {{
+            "01_dino_bebe_1": [
+                {{ badge: "ESTILO 01", type: "badge-pop", tag: "1 Ojo Cartoon", name: "Color Pop / Menta & Amarillo", desc: "Cuerpo menta, barriga amarilla plana, ojo grande lateral con doble brillo blanco y mejilla rosa.", img: "inspiracion/01_dino_bebe_25d_pop.jpg", palette: ["#10b981", "#fbbf24", "#f43f5e", "#0f172a"], tips: ["Barriga pintada con doble pasada de amarillo Posca.", "Ojo grande cartoon con dos puntos de luz blancos."] }},
+                {{ badge: "ESTILO 02", type: "badge-kawaii", tag: "Ojo Manga / Estrella", name: "Pastel Kawaii / Lila & Melocotón", desc: "Cuerpo lila suave, barriga melocotón cálido, ojo manga con destello de estrella y rubor dulce.", img: "inspiracion/01_dino_bebe_25d_kawaii.jpg", palette: ["#c4b5fd", "#fdba74", "#f472b6", "#ffffff"], tips: ["Colores pastel relajantes ideales para los más pequeños.", "Destellos de estrella en el ojo con plumón blanco fino."] }},
+                {{ badge: "ESTILO 03", type: "badge-monster", tag: "Monstruito / Colmillo", name: "Monstruo Travieso / Turquesa & Naranja", desc: "Cuerpo turquesa, manchas circulares naranjas en el lomo y sonrisa traviesa con colmillito blanco.", img: "inspiracion/01_dino_bebe_25d_monster.jpg", palette: ["#06b6d4", "#f97316", "#0f172a", "#ffffff"], tips: ["Manchas circulares de diferente diámetro en el lomo.", "Dientecito triangular blanco en la esquina de la boca."] }}
+            ],
+            "02_dino_bebe_2": [
+                {{ badge: "ESTILO 01", type: "badge-pop", tag: "1 Cíclope Pop", name: "Rosa Coral & Amarillo", desc: "Cuerpo rosa coral, barriga amarilla y un gran ojo cíclope central con iris azul y reflejo blanco.", img: "inspiracion/02_dino_bebe_2_25d_pop.jpg", palette: ["#fb7185", "#facc15", "#0284c7", "#0f172a"], tips: ["Ojo central grande y expresivo en medio de la cabeza.", "Boca alegre en arco debajo del ojo."] }},
+                {{ badge: "ESTILO 02", type: "badge-kawaii", tag: "2 Ojos Kawaii", name: "Menta Pastel & Lila", desc: "Cuerpo verde menta suave, barriga lila pastel, 2 ojos brillantes y mejillas sonrosadas.", img: "inspiracion/02_dino_bebe_2_25d_kawaii.jpg", palette: ["#6ee7b7", "#d8b4fe", "#fda4af", "#ffffff"], tips: ["Dos ojos paralelos con destellos dobles.", "Colores súper suaves y amigables."] }},
+                {{ badge: "ESTILO 03", type: "badge-monster", tag: "Monstruo / Colmillo", name: "Naranja Eléctrico & Púrpura", desc: "Cuerpo naranja brillante con manchas circulares púrpuras en el lomo y sonrisa con colmillito.", icon: "⚡", palette: ["#f97316", "#a855f7", "#0f172a", "#ffffff"], tips: ["Manchas circulares en el lomo.", "Dientecito blanco triangular."] }}
+            ],
+            "03_fantasmita": [
+                {{ badge: "ESTILO 01", type: "badge-pop", tag: "Clásico Fantasmal", name: "Blanco Crema & Cian", desc: "Cuerpo blanco crema con contorno cian suave, dos ojazos negros expresivos y boca abierta alegre en 'O'.", img: "inspiracion/03_fantasmita_25d_pop.jpg", palette: ["#f8fafc", "#38bdf8", "#0f172a", "#ffffff"], tips: ["Ojos grandes ovalados con brillo blanco brillante.", "Boca en forma de 'O' flotante."] }},
+                {{ badge: "ESTILO 02", type: "badge-kawaii", tag: "1 Ojo Cósmico", name: "Lila Estelar & Amarillo", desc: "Cuerpo lila suave con un único ojo cósmico central y mejillas con destellos de estrella.", icon: "⭐", palette: ["#c084fc", "#fde047", "#fda4af", "#ffffff"], tips: ["Ojo central con pupila violeta y estrella blanca.", "Rubor cálido en los lados."] }},
+                {{ badge: "ESTILO 03", type: "badge-monster", tag: "Espíritu Travieso", name: "Turquesa & Lengüita Rosa", desc: "Cuerpo turquesa con un ojo guiñado, lengua rosa traviesa afuera y puntitos de confeti flotantes.", icon: "👻", palette: ["#06b6d4", "#f43f5e", "#fde047", "#0f172a"], tips: ["Guiño feliz con pestañas marcadas.", "Lengüita rosa saliendo de la boca."] }}
+            ],
+            "04_frijolito": [
+                {{ badge: "ESTILO 01", type: "badge-pop", tag: "2 Puntos / Tierno", name: "Amarillo Mostaza & Crema", desc: "Cuerpo amarillo cálido, pecho crema, dos ojos de punto simples y limpios, y sonrisa feliz con pecas.", img: "inspiracion/04_frijolito_25d_pop.jpg", palette: ["#f59e0b", "#fef3c7", "#f43f5e", "#0f172a"], tips: ["Puntos negros súper limpios para los ojos.", "Pecas y rubor suave en las mejillas."] }},
+                {{ badge: "ESTILO 02", type: "badge-monster", tag: "1 Cíclope Alien", name: "Verde Lima & Rayas Tigre", desc: "Cuerpo verde lima con rayas atigradas oscuras y un ojo cíclope gigante con iris púrpura y doble brillo.", img: "inspiracion/04_frijolito_25d_monster.jpg", palette: ["#84cc16", "#15803d", "#a855f7", "#0f172a"], tips: ["Ojo gigante en el centro de la cabeza.", "Rayas horizontales en el cuerpo."] }},
+                {{ badge: "ESTILO 03", type: "badge-kawaii", tag: "Fresa Kawaii", name: "Rosa Pastel & Lunares", desc: "Cuerpo rosa pastel con ojitos felices cerrados (^ ^) y pequeñas motas estilo semilla de fresa.", icon: "🍓", palette: ["#f472b6", "#fee2e2", "#dc2626", "#0f172a"], tips: ["Ojos curvados felices hacia arriba.", "Boca abierta sonriente."] }}
+            ],
+            "05_monstruo_cuernitos": [
+                {{ badge: "ESTILO 01", type: "badge-pop", tag: "1 Cíclope Neón", name: "Azul Cobalto & Amarillo", desc: "Cuerpo azul cobalto, barriga amarillo neón, cuernitos blancos limpios y un gran ojo cíclope central.", img: "inspiracion/05_monstruo_cuernitos_25d_pop.jpg", palette: ["#1d4ed8", "#facc15", "#ffffff", "#0f172a"], tips: ["Cuernos en blanco limpio de alto contraste.", "Ojo central grande y amigable."] }},
+                {{ badge: "ESTILO 02", type: "badge-kawaii", tag: "Cuernos Bastón", name: "Lila Dormilón & Caramelo", desc: "Cuerpo lila pastel, cuernitos con rayas de caramelo rojas y blancas, y ojos dormilones serenos.", img: "inspiracion/05_monstruo_cuernitos_25d_kawaii.jpg", palette: ["#c084fc", "#ef4444", "#ffffff", "#0f172a"], tips: ["Líneas rojas diagonales en los cuernos.", "Líneas de ojos cerrados descansando."] }},
+                {{ badge: "ESTILO 03", type: "badge-monster", tag: "Ojos Desiguales", name: "Naranja & Colmillitos", desc: "Cuerpo naranja con manchas verde azuladas, dos ojos de distinto tamaño (uno grande, uno chico) y colmillitos.", icon: "👹", palette: ["#ea580c", "#0d9488", "#0f172a", "#ffffff"], tips: ["Un ojo grande y otro más pequeño para toque pícaro.", "Dos dientes triangulares blancos hacia arriba."] }}
+            ]
+        }};
 
         function initApp() {{
             const listEl = document.getElementById("character-list");
@@ -536,10 +493,54 @@ html_content = f'''<!DOCTYPE html>
 
         function renderRenders(idx) {{
             const container = document.getElementById("renders-container");
-            if (idx === 0) {{
-                container.innerHTML = dinoBebeCardsHTML;
+            const char = characters[idx];
+            const data = characterRenders[char.id];
+
+            if (data && data.length === 3) {{
+                let html = "";
+                data.forEach(item => {{
+                    let imgHtml = "";
+                    if (item.img) {{
+                        imgHtml = `<img src="${{item.img}}" alt="${{item.name}}">`;
+                    }} else {{
+                        imgHtml = `
+                            <div style="font-size: 2.2rem;">${{item.icon || "✨"}}</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Próximamente Render 2.5D</div>
+                        `;
+                    }}
+
+                    let paletteHtml = "";
+                    item.palette.forEach(color => {{
+                        paletteHtml += `<div class="palette-chip" style="background: ${{color}};"></div>`;
+                    }});
+
+                    let tipsHtml = "";
+                    item.tips.forEach(tip => {{
+                        tipsHtml += `<li>${{tip}}</li>`;
+                    }});
+
+                    html += `
+                        <div class="render-card">
+                            <div class="card-header-row">
+                                <span class="card-badge ${{item.type}}">${{item.badge}}</span>
+                                <span style="font-size: 0.68rem; font-weight: 600;">${{item.tag}}</span>
+                            </div>
+                            <div class="card-name">${{item.name}}</div>
+                            <div class="card-desc">${{item.desc}}</div>
+                            <div class="render-img-box" ${{!item.img ? 'style="flex-direction: column; background: #f8fafc; border: 2px dashed #cbd5e1; gap: 8px;"' : ''}}>
+                                ${{imgHtml}}
+                            </div>
+                            <div class="palette-row">
+                                ${{paletteHtml}}
+                            </div>
+                            <ul class="tips-list">
+                                ${{tipsHtml}}
+                            </ul>
+                        </div>
+                    `;
+                }});
+                container.innerHTML = html;
             }} else {{
-                const char = characters[idx];
                 container.innerHTML = `
                     <div class="render-card">
                         <div class="card-header-row">
@@ -633,4 +634,4 @@ html_content = f'''<!DOCTYPE html>
 with open('pack_digitoys_12/05_acabado_color/estacion_05_acabado_color.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Silhouette size increased to 140x140px in estacion_05_acabado_color.html!")
+print("estacion_05_acabado_color.html updated with dynamic renders for 01-05!")
