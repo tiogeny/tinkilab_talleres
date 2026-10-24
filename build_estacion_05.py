@@ -150,79 +150,100 @@ html_content = f'''<!DOCTYPE html>
 
         /* Columna 2: Canvas Principal */
         .main-content {{
-            padding: 16px 24px;
+            padding: 18px 24px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }}
 
-        /* Tarjeta Superior Compacta: Solo Silueta + Título Limpio */
+        /* Tarjeta Superior: Silueta Proporcional Grande (150 mm escala visible) + Información */
         .top-hero-card {{
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 10px 18px;
+            border-radius: 12px;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
-            gap: 18px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            gap: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
             flex-shrink: 0;
         }}
 
         .silhouette-box {{
-            width: 70px;
-            height: 70px;
+            width: 140px;
+            height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #f8fafc;
-            border-radius: 8px;
-            border: 1.5px dashed #cbd5e1;
-            padding: 6px;
+            border-radius: 10px;
+            border: 2px dashed #cbd5e1;
+            padding: 10px;
             flex-shrink: 0;
+            transition: all 0.2s ease;
         }}
 
         .silhouette-box svg {{
             width: 100%;
             height: 100%;
-            max-width: 58px;
-            max-height: 58px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+            max-width: 120px;
+            max-height: 120px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }}
 
         .hero-details {{
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 8px;
+            flex: 1;
         }}
 
         .hero-title-row {{
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
         }}
 
         .hero-title {{
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--text-title);
             letter-spacing: -0.01em;
         }}
 
         .hero-scale-badge {{
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             color: var(--primary);
             font-weight: 700;
             background: var(--primary-light);
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
             border: 1px solid #bae6fd;
         }}
 
-        .hero-subtitle {{
-            font-size: 0.78rem;
+        .hero-instruction {{
+            font-size: 0.82rem;
+            color: var(--text-body);
+            line-height: 1.4;
+        }}
+
+        .hero-features {{
+            display: flex;
+            gap: 12px;
+            margin-top: 2px;
+        }}
+
+        .hero-feature-item {{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
             color: var(--text-muted);
+            background: #f8fafc;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
         }}
 
         /* Sección Inferior: 3 Renders en Fila Horizontal */
@@ -234,7 +255,7 @@ html_content = f'''<!DOCTYPE html>
         }}
 
         .section-title {{
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             font-weight: 700;
             color: var(--text-title);
             display: flex;
@@ -301,10 +322,10 @@ html_content = f'''<!DOCTYPE html>
             min-height: 32px;
         }}
 
-        /* Contenedor de la Imagen: RENDER COMPLETO Y MÁS GRANDE */
+        /* Contenedor de la Imagen: RENDER COMPLETO */
         .render-img-box {{
             width: 100%;
-            height: 250px;
+            height: 230px;
             background: #ffffff;
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -371,7 +392,7 @@ html_content = f'''<!DOCTYPE html>
 
         <!-- Columna 2: Canvas Principal -->
         <main class="main-content">
-            <!-- Tarjeta Superior Compacta -->
+            <!-- Tarjeta Superior: Silueta Proporcional Grande + Información Limpia -->
             <div class="top-hero-card">
                 <div class="silhouette-box" id="silhouette-display">
                     <!-- Inyectado por JS -->
@@ -379,16 +400,23 @@ html_content = f'''<!DOCTYPE html>
                 <div class="hero-details">
                     <div class="hero-title-row">
                         <div class="hero-title" id="current-name">01 Dino Bebé 1</div>
-                        <div class="hero-scale-badge">Escala 1:1 (70 mm)</div>
+                        <div class="hero-scale-badge">Silueta Base 1:1 (70 mm)</div>
                     </div>
-                    <div class="hero-subtitle">Boceta primero tu diseño en la Ficha en papel y luego aplica color sobre la pieza 3D con plumones Posca.</div>
+                    <div class="hero-instruction">
+                        Esta es la silueta 3D original que tendrás en tus manos. Boceta primero la carita en tu <strong>Ficha de Diseño 2D</strong> y luego píntala en 3D inspirándote en cualquiera de las 3 opciones de abajo:
+                    </div>
+                    <div class="hero-features">
+                        <span class="hero-feature-item">📍 <strong>Escala:</strong> 70 mm alto</span>
+                        <span class="hero-feature-item">🧱 <strong>Espesor:</strong> 15 mm (base estable)</span>
+                        <span class="hero-feature-item">🎨 <strong>Base:</strong> Filamento neutro / blanco</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Sección Inferior: 3 Renders en Fila Horizontal -->
             <div class="bottom-section">
                 <div class="section-title">
-                    <span>🎨</span> 3 Opciones de Inspiración & Color
+                    <span>🎨</span> 3 Opciones de Inspiración & Color (Pieza 2.5D Real)
                 </div>
 
                 <div class="cards-row-grid" id="renders-container">
@@ -605,4 +633,4 @@ html_content = f'''<!DOCTYPE html>
 with open('pack_digitoys_12/05_acabado_color/estacion_05_acabado_color.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Clean minimal header applied to estacion_05_acabado_color.html!")
+print("Silhouette size increased to 140x140px in estacion_05_acabado_color.html!")
