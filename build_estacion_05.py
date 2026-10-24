@@ -81,7 +81,7 @@ html_content = f'''<!DOCTYPE html>
         .main-layout {{
             flex: 1;
             display: grid;
-            grid-template-columns: 270px 1fr 410px;
+            grid-template-columns: 260px 1fr;
             overflow: hidden;
         }}
 
@@ -149,163 +149,150 @@ html_content = f'''<!DOCTYPE html>
             font-weight: 700;
         }}
 
-        /* Columna 2: Canvas Central y Guía de Expresiones */
-        .center-canvas {{
-            padding: 20px 24px;
+        /* Columna 2: Canvas Principal (Silueta Superior + 3 Renders Horizontales Debajo) */
+        .main-content {{
+            padding: 20px 28px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 18px;
         }}
 
-        .silhouette-card {{
+        /* Tarjeta Superior: Silueta + Ficha Rápida */
+        .top-hero-card {{
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 18px 24px;
+            padding: 16px 24px;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 28px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-        }}
-
-        .silhouette-header {{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }}
-
-        .silhouette-title {{
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-title);
-        }}
-
-        .silhouette-scale {{
-            font-size: 0.72rem;
-            color: var(--primary);
-            font-weight: 600;
-            background: var(--primary-light);
-            padding: 3px 8px;
-            border-radius: 6px;
+            flex-shrink: 0;
         }}
 
         .silhouette-box {{
-            width: 210px;
-            height: 210px;
+            width: 150px;
+            height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #f8fafc;
             border-radius: 12px;
             border: 2px dashed #cbd5e1;
-            padding: 14px;
+            padding: 10px;
+            flex-shrink: 0;
         }}
 
         .silhouette-box svg {{
             width: 100%;
             height: 100%;
-            max-width: 180px;
-            max-height: 180px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+            max-width: 130px;
+            max-height: 130px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
         }}
 
-        /* Biblioteca de Expresiones Faciales */
-        .features-grid {{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            width: 100%;
+        .hero-details {{
+            flex: 1;
         }}
 
-        .feature-block {{
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 14px 16px;
-        }}
-
-        .feature-block-title {{
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--text-title);
-            margin-bottom: 10px;
+        .hero-title-row {{
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: space-between;
+            margin-bottom: 6px;
         }}
 
-        .feature-items-row {{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+        .hero-title {{
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-title);
+            letter-spacing: -0.01em;
+        }}
+
+        .hero-scale-badge {{
+            font-size: 0.72rem;
+            color: var(--primary);
+            font-weight: 700;
+            background: var(--primary-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #bae6fd;
+        }}
+
+        .hero-description {{
+            font-size: 0.82rem;
+            color: var(--text-body);
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }}
+
+        .hero-tags {{
+            display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }}
 
-        .feature-box {{
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px 4px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 62px;
-            transition: transform 0.1s ease;
-        }}
-
-        .feature-box:hover {{
-            background: #ffffff;
-            border-color: #cbd5e1;
-            transform: translateY(-2px);
-        }}
-
-        .feature-box svg {{
-            width: 32px;
-            height: 32px;
-        }}
-
-        .feature-box-label {{
-            font-size: 0.65rem;
-            font-weight: 600;
+        .hero-tag {{
+            font-size: 0.72rem;
+            background: #f1f5f9;
             color: var(--text-muted);
-            margin-top: 5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
         }}
 
-        /* Columna 3: 3 Opciones de Inspiración 2.5D */
-        .sidebar-inspiration {{
-            background-color: var(--bg-card);
-            border-left: 1px solid var(--border);
-            overflow-y: auto;
-            padding: 18px 20px;
+        /* Sección Inferior: 3 Renders en Fila Horizontal */
+        .bottom-section {{
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
+            flex: 1;
         }}
 
-        .inspiration-title {{
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-title);
+        .section-header {{
             display: flex;
             align-items: center;
             justify-content: space-between;
         }}
 
-        .card-style {{
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 14px;
-            transition: border-color 0.15s ease;
+        .section-title {{
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }}
 
-        .card-style:hover {{
+        .cards-row-grid {{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }}
+
+        .render-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }}
+
+        .render-card:hover {{
             border-color: #cbd5e1;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }}
+
+        .card-header-row {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
         }}
 
         .card-badge {{
@@ -315,7 +302,6 @@ html_content = f'''<!DOCTYPE html>
             padding: 2px 8px;
             border-radius: 4px;
             display: inline-block;
-            margin-bottom: 6px;
         }}
 
         .badge-pop {{ background: #dcfce7; color: #15803d; }}
@@ -323,51 +309,65 @@ html_content = f'''<!DOCTYPE html>
         .badge-monster {{ background: #e0f2fe; color: #0369a1; }}
 
         .card-name {{
-            font-size: 0.88rem;
+            font-size: 0.92rem;
             font-weight: 700;
             color: var(--text-title);
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }}
 
         .card-desc {{
-            font-size: 0.72rem;
+            font-size: 0.74rem;
             color: var(--text-muted);
             line-height: 1.35;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            min-height: 34px;
         }}
 
-        .card-preview-img {{
+        /* Contenedor de la Imagen: RENDER COMPLETO SIN RECORTES */
+        .render-img-box {{
             width: 100%;
-            height: 165px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            height: 220px;
+            background: #ffffff;
             border: 1px solid var(--border);
-            background: #f8fafc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            overflow: hidden;
+            padding: 6px;
+        }}
+
+        .render-img-box img {{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             display: block;
+            border-radius: 6px;
         }}
 
         .palette-row {{
             display: flex;
             gap: 6px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }}
 
         .palette-chip {{
             flex: 1;
-            height: 20px;
+            height: 22px;
             border-radius: 4px;
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.12);
         }}
 
         .tips-list {{
-            font-size: 0.68rem;
+            font-size: 0.72rem;
             color: #475569;
-            padding-left: 14px;
+            padding-left: 16px;
+            line-height: 1.4;
         }}
 
         .tips-list li {{
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }}
     </style>
 </head>
@@ -375,7 +375,7 @@ html_content = f'''<!DOCTYPE html>
     <header>
         <div class="header-title">
             <h1>ESTACIÓN 05 — ACABADO & COLOR</h1>
-            <p>Catálogo de Expresiones Faciales y Guía de Pintura de DigiToys 2.5D</p>
+            <p>Guía de Inspiración y Pintura de DigiToys 2.5D con Marcadores Posca</p>
         </div>
         <div class="header-badges">
             <span class="badge">Altura: 70 mm</span>
@@ -391,106 +391,42 @@ html_content = f'''<!DOCTYPE html>
             <div id="character-list"></div>
         </aside>
 
-        <!-- Columna 2: Canvas Central y Guía de Expresiones -->
-        <main class="center-canvas">
-            <!-- Tarjeta de Silueta Oficial -->
-            <div class="silhouette-card">
-                <div class="silhouette-header">
-                    <div class="silhouette-title" id="current-name">01 Dino Bebé 1</div>
-                    <div class="silhouette-scale">Escala 1:1 (70 mm)</div>
-                </div>
-
+        <!-- Columna 2: Canvas Principal (Silueta Superior + 3 Renders Horizontales Debajo) -->
+        <main class="main-content">
+            <!-- Tarjeta Superior: Silueta + Ficha Rápida -->
+            <div class="top-hero-card">
                 <div class="silhouette-box" id="silhouette-display">
                     <!-- Inyectado por JS sin CORS -->
                 </div>
+                <div class="hero-details">
+                    <div class="hero-title-row">
+                        <div class="hero-title" id="current-name">01 Dino Bebé 1</div>
+                        <div class="hero-scale-badge">Escala Real 1:1 (70 mm)</div>
+                    </div>
+                    <p class="hero-description" id="hero-desc">
+                        Silueta base 2.5D para impresión 3D con bordes redondeados infantiles ($R=1.2\text{{ mm}}$). Planifica el diseño de la carita en tu <strong>Ficha de Trabajo Dual</strong> con lápices antes de pintar sobre la pieza física con marcadores Posca.
+                    </p>
+                    <div class="hero-tags" id="hero-tags">
+                        <span class="hero-tag">📏 70 × 15 mm</span>
+                        <span class="hero-tag">🎨 Base recomendada: Blanco / Filamento Neutro</span>
+                        <span class="hero-tag">✨ Doble Boleado Suave</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Biblioteca de Expresiones Faciales Fáciles para 7 cm -->
-            <div class="features-grid">
-                <!-- Ojos -->
-                <div class="feature-block">
-                    <div class="feature-block-title">
-                        <span>👀</span> Ideas de Ojos (Simples & Lindos)
-                    </div>
-                    <div class="feature-items-row">
-                        <div class="feature-box" title="Círculo negro grande con 2 puntos de luz blancos">
-                            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="#0f172a"/><circle cx="16" cy="15" r="4.5" fill="#ffffff"/><circle cx="24" cy="23" r="2.5" fill="#ffffff"/></svg>
-                            <span class="feature-box-label">Cartoon</span>
-                        </div>
-                        <div class="feature-box" title="1 solo ojo central gigante para monstruos o marcianos">
-                            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/><circle cx="20" cy="20" r="8" fill="#0284c7"/><circle cx="20" cy="20" r="4" fill="#0f172a"/><circle cx="18" cy="18" r="2" fill="#ffffff"/></svg>
-                            <span class="feature-box-label">1 Cíclope</span>
-                        </div>
-                        <div class="feature-box" title="Arco curvado feliz con pestañita">
-                            <svg viewBox="0 0 40 40"><path d="M8,24 Q20,10 32,24" stroke="#0f172a" stroke-width="4" fill="none" stroke-linecap="round"/><line x1="12" y1="16" x2="8" y2="12" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/><line x1="28" y1="16" x2="32" y2="12" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/></svg>
-                            <span class="feature-box-label">Guiño</span>
-                        </div>
-                        <div class="feature-box" title="Puntos limpios súper tiernos">
-                            <svg viewBox="0 0 40 40"><circle cx="13" cy="20" r="5" fill="#0f172a"/><circle cx="27" cy="20" r="5" fill="#0f172a"/></svg>
-                            <span class="feature-box-label">2 Puntos</span>
-                        </div>
+            <!-- Sección Inferior: 3 Renders en Fila Horizontal -->
+            <div class="bottom-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span>🎨</span> Propuestas de Acabado 2.5D (Renders de Muestra)
                     </div>
                 </div>
 
-                <!-- Bocas -->
-                <div class="feature-block">
-                    <div class="feature-block-title">
-                        <span>👄</span> Ideas de Bocas (Trazo Fácil Posca)
-                    </div>
-                    <div class="feature-items-row">
-                        <div class="feature-box" title="Sonrisa amplia feliz">
-                            <svg viewBox="0 0 40 40"><path d="M8,18 Q20,32 32,18" stroke="#0f172a" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
-                            <span class="feature-box-label">Sonrisa</span>
-                        </div>
-                        <div class="feature-box" title="Sonrisa pícara con colmillo blanco">
-                            <svg viewBox="0 0 40 40"><path d="M8,18 Q20,30 32,18" stroke="#0f172a" stroke-width="3.5" fill="none" stroke-linecap="round"/><polygon points="23,20 28,20 25.5,27" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/></svg>
-                            <span class="feature-box-label">Colmillito</span>
-                        </div>
-                        <div class="feature-box" title="Boca sorpresa abierta 'O'">
-                            <svg viewBox="0 0 40 40"><ellipse cx="20" cy="21" rx="8" ry="11" fill="#e11d48" stroke="#0f172a" stroke-width="2.5"/><ellipse cx="20" cy="26" rx="5" ry="4" fill="#fda4af"/></svg>
-                            <span class="feature-box-label">Sorpresa</span>
-                        </div>
-                        <div class="feature-box" title="Boca monstruo zig-zag o robot">
-                            <svg viewBox="0 0 40 40"><path d="M8,20 L14,25 L20,16 L26,25 L32,18" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            <span class="feature-box-label">Zig-Zag</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Texturas & Patrones -->
-                <div class="feature-block" style="grid-column: span 2;">
-                    <div class="feature-block-title">
-                        <span>🎨</span> Detalles y Contraste de Color
-                    </div>
-                    <div class="feature-items-row" style="grid-template-columns: repeat(4, 1fr);">
-                        <div class="feature-box" title="Pecas o manchas circulares de color">
-                            <svg viewBox="0 0 40 40"><circle cx="12" cy="14" r="3.5" fill="#f97316"/><circle cx="28" cy="13" r="4.5" fill="#f97316"/><circle cx="17" cy="27" r="3" fill="#f97316"/><circle cx="29" cy="26" r="3.5" fill="#f97316"/></svg>
-                            <span class="feature-box-label">Pecas / Manchas</span>
-                        </div>
-                        <div class="feature-box" title="Rayas atigradas gruesas y fáciles">
-                            <svg viewBox="0 0 40 40"><path d="M10,13 Q20,9 30,13" stroke="#0284c7" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M8,20 Q20,16 32,20" stroke="#0284c7" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M11,27 Q20,23 29,27" stroke="#0284c7" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-                            <span class="feature-box-label">Rayas Tigre</span>
-                        </div>
-                        <div class="feature-box" title="Zona del pecho en contraste claro">
-                            <svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="15" ry="12" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/></svg>
-                            <span class="feature-box-label">Barriga Color</span>
-                        </div>
-                        <div class="feature-box" title="Mejillas sonrosadas Kawaii">
-                            <svg viewBox="0 0 40 40"><ellipse cx="11" cy="20" rx="7" ry="5" fill="#fda4af" opacity="0.85"/><ellipse cx="29" cy="20" rx="7" ry="5" fill="#fda4af" opacity="0.85"/></svg>
-                            <span class="feature-box-label">Mejillas Rubor</span>
-                        </div>
-                    </div>
+                <div class="cards-row-grid" id="renders-container">
+                    <!-- Inyectado dinámicamente por JS -->
                 </div>
             </div>
         </main>
-
-        <!-- Columna 3: 3 Opciones de Inspiración 2.5D -->
-        <aside class="sidebar-inspiration">
-            <div class="inspiration-title" id="inspiration-header">Inspiración 2.5D: 01 Dino Bebé 1</div>
-            <div id="inspiration-cards-container">
-                <!-- Se inyecta dinámicamente mediante renderInspirationCards(idx) sin destruir estado -->
-            </div>
-        </aside>
     </div>
 
     <script>
@@ -499,11 +435,16 @@ html_content = f'''<!DOCTYPE html>
 
         const dinoBebeCardsHTML = `
             <!-- Tarjeta 1: Pop Color -->
-            <div class="card-style">
-                <span class="card-badge badge-pop">ESTILO 01</span>
+            <div class="render-card">
+                <div class="card-header-row">
+                    <span class="card-badge badge-pop">ESTILO 01</span>
+                    <span style="font-size: 0.68rem; color: #15803d; font-weight: 600;">1 Ojo Cartoon</span>
+                </div>
                 <div class="card-name">Color Pop / Menta & Amarillo</div>
-                <div class="card-desc">Base verde menta, barriga amarilla plana, ojos cartoon expresivos y mejillas rosas.</div>
-                <img src="inspiracion/01_dino_bebe_25d_pop.jpg" alt="Estilo Pop 2.5D" class="card-preview-img">
+                <div class="card-desc">Cuerpo menta, barriga amarilla plana, ojo grande lateral con doble brillo blanco y mejilla rosa.</div>
+                <div class="render-img-box">
+                    <img src="inspiracion/01_dino_bebe_25d_pop.jpg" alt="Dino Bebe 2.5D Pop Color">
+                </div>
                 <div class="palette-row">
                     <div class="palette-chip" style="background: #10b981;" title="Verde Menta (Base)"></div>
                     <div class="palette-chip" style="background: #fbbf24;" title="Amarillo Brillante"></div>
@@ -512,16 +453,21 @@ html_content = f'''<!DOCTYPE html>
                 </div>
                 <ul class="tips-list">
                     <li>Barriga pintada con doble pasada de amarillo Posca.</li>
-                    <li>Ojo grande con doble punto de luz blanco.</li>
+                    <li>Ojo grande cartoon con dos puntos de luz blancos.</li>
                 </ul>
             </div>
 
             <!-- Tarjeta 2: Kawaii Pastel -->
-            <div class="card-style" style="margin-top: 14px;">
-                <span class="card-badge badge-kawaii">ESTILO 02</span>
+            <div class="render-card">
+                <div class="card-header-row">
+                    <span class="card-badge badge-kawaii">ESTILO 02</span>
+                    <span style="font-size: 0.68rem; color: #6d28d9; font-weight: 600;">Ojo Manga / Estrella</span>
+                </div>
                 <div class="card-name">Pastel Kawaii / Lila & Melocotón</div>
-                <div class="card-desc">Base lila suave, barriga melocotón cálido, ojito manga con estrellas y mejillas sonrosadas.</div>
-                <img src="inspiracion/01_dino_bebe_25d_kawaii.jpg" alt="Estilo Kawaii 2.5D" class="card-preview-img">
+                <div class="card-desc">Cuerpo lila suave, barriga melocotón cálido, ojo manga con destello de estrella y rubor dulce.</div>
+                <div class="render-img-box">
+                    <img src="inspiracion/01_dino_bebe_25d_kawaii.jpg" alt="Dino Bebe 2.5D Kawaii Pastel">
+                </div>
                 <div class="palette-row">
                     <div class="palette-chip" style="background: #c4b5fd;" title="Lila Pastel (Base)"></div>
                     <div class="palette-chip" style="background: #fdba74;" title="Melocotón Suave"></div>
@@ -529,17 +475,22 @@ html_content = f'''<!DOCTYPE html>
                     <div class="palette-chip" style="background: #ffffff;" title="Blanco Destellos"></div>
                 </div>
                 <ul class="tips-list">
-                    <li>Tonos suaves ideales para niños pequeños.</li>
-                    <li>Brillos de estrellas en los ojos con plumón blanco fino.</li>
+                    <li>Colores pastel relajantes ideales para los más pequeños.</li>
+                    <li>Destellos de estrella en el ojo con plumón blanco fino.</li>
                 </ul>
             </div>
 
-            <!-- Tarjeta 3: Monster Dino -->
-            <div class="card-style" style="margin-top: 14px;">
-                <span class="card-badge badge-monster">ESTILO 03</span>
+            <!-- Tarjeta 3: Monster Texturado -->
+            <div class="render-card">
+                <div class="card-header-row">
+                    <span class="card-badge badge-monster">ESTILO 03</span>
+                    <span style="font-size: 0.68rem; color: #0369a1; font-weight: 600;">Monstruito / Colmillo</span>
+                </div>
                 <div class="card-name">Monstruo Travieso / Turquesa & Naranja</div>
-                <div class="card-desc">Base turquesa eléctrica, manchas geométricas naranjas y sonrisa pícara con colmillito.</div>
-                <img src="inspiracion/01_dino_bebe_25d_monster.jpg" alt="Estilo Monster 2.5D" class="card-preview-img">
+                <div class="card-desc">Cuerpo turquesa, manchas circulares naranjas en el lomo y sonrisa traviesa con colmillito blanco.</div>
+                <div class="render-img-box">
+                    <img src="inspiracion/01_dino_bebe_25d_monster.jpg" alt="Dino Bebe 2.5D Monster">
+                </div>
                 <div class="palette-row">
                     <div class="palette-chip" style="background: #06b6d4;" title="Turquesa Eléctrico"></div>
                     <div class="palette-chip" style="background: #f97316;" title="Naranja Intenso"></div>
@@ -547,8 +498,8 @@ html_content = f'''<!DOCTYPE html>
                     <div class="palette-chip" style="background: #ffffff;" title="Dientes Blancos"></div>
                 </div>
                 <ul class="tips-list">
-                    <li>Manchas circulares de diferente diámetro sobre el lomo.</li>
-                    <li>Dientecito blanco triangular en la esquina de la boca.</li>
+                    <li>Manchas circulares de diferente diámetro en el lomo.</li>
+                    <li>Dientecito triangular blanco en la esquina de la boca.</li>
                 </ul>
             </div>
         `;
@@ -571,7 +522,7 @@ html_content = f'''<!DOCTYPE html>
             }});
 
             renderSilhouette();
-            renderInspiration(0);
+            renderRenders(0);
         }}
 
         function selectCharacter(idx) {{
@@ -581,39 +532,85 @@ html_content = f'''<!DOCTYPE html>
             }});
             const char = characters[idx];
             document.getElementById("current-name").textContent = char.name;
-            document.getElementById("inspiration-header").textContent = `Inspiración 2.5D: ${{char.name}}`;
             
             renderSilhouette();
-            renderInspiration(idx);
+            renderRenders(idx);
         }}
 
-        function renderInspiration(idx) {{
-            const container = document.getElementById("inspiration-cards-container");
+        function renderRenders(idx) {{
+            const container = document.getElementById("renders-container");
             if (idx === 0) {{
                 container.innerHTML = dinoBebeCardsHTML;
             }} else {{
                 const char = characters[idx];
                 container.innerHTML = `
-                    <div class="card-style" style="text-align: center; padding: 28px 16px;">
-                        <span class="card-badge badge-pop">PALETA SUGERIDA</span>
-                        <div class="card-name" style="margin-top: 10px; font-size: 1rem;">${{char.name}}</div>
-                        <p class="card-desc" style="margin-top: 8px;">
-                            ¡Explora expresiones únicas! Puedes dibujarlo con <strong>1 ojo gigante cíclope</strong> o con <strong>2 ojos tiernos</strong> según su personalidad.
-                        </p>
-                        <div class="palette-row" style="margin-top: 16px;">
-                            <div class="palette-chip" style="background: #0284c7;" title="Azul"></div>
+                    <div class="render-card">
+                        <div class="card-header-row">
+                            <span class="card-badge badge-pop">PROPUESTA 01</span>
+                            <span style="font-size: 0.68rem; color: #15803d; font-weight: 600;">1 Ojo Cíclope</span>
+                        </div>
+                        <div class="card-name">Estilo Alien / Cíclope Pop</div>
+                        <div class="card-desc">Un único ojo gigante central con iris brillante y pupila negra con doble reflejo.</div>
+                        <div class="render-img-box" style="flex-direction: column; background: #f8fafc; border: 2px dashed #cbd5e1; gap: 8px;">
+                            <div style="font-size: 2rem;">👁️</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Próximamente Render 2.5D</div>
+                        </div>
+                        <div class="palette-row">
+                            <div class="palette-chip" style="background: #0284c7;" title="Azul Eléctrico"></div>
                             <div class="palette-chip" style="background: #fbbf24;" title="Amarillo"></div>
+                            <div class="palette-chip" style="background: #0f172a;" title="Negro Trazo"></div>
+                            <div class="palette-chip" style="background: #ffffff;" title="Blanco Brillos"></div>
+                        </div>
+                        <ul class="tips-list">
+                            <li>Dibuja un círculo grande con plumón negro en el centro.</li>
+                            <li>Añade el iris de color y los puntos blancos de brillo.</li>
+                        </ul>
+                    </div>
+
+                    <div class="render-card">
+                        <div class="card-header-row">
+                            <span class="card-badge badge-kawaii">PROPUESTA 02</span>
+                            <span style="font-size: 0.68rem; color: #6d28d9; font-weight: 600;">2 Ojos Tiernos</span>
+                        </div>
+                        <div class="card-name">Estilo Amigable / 2 Ojos & Sonrisa</div>
+                        <div class="card-desc">Dos ojitos juntos y separados con expresión tierna, pecas y barriga de color.</div>
+                        <div class="render-img-box" style="flex-direction: column; background: #f8fafc; border: 2px dashed #cbd5e1; gap: 8px;">
+                            <div style="font-size: 2rem;">👀</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Próximamente Render 2.5D</div>
+                        </div>
+                        <div class="palette-row">
+                            <div class="palette-chip" style="background: #a855f7;" title="Púrpura"></div>
+                            <div class="palette-chip" style="background: #fda4af;" title="Rosa Pastel"></div>
+                            <div class="palette-chip" style="background: #fef08a;" title="Amarillo Pastel"></div>
+                            <div class="palette-chip" style="background: #ffffff;" title="Blanco"></div>
+                        </div>
+                        <ul class="tips-list">
+                            <li>Dos círculos paralelos con puntos de luz y mejillas sonrosadas.</li>
+                            <li>Boca con sonrisa suave en arco.</li>
+                        </ul>
+                    </div>
+
+                    <div class="render-card">
+                        <div class="card-header-row">
+                            <span class="card-badge badge-monster">PROPUESTA 03</span>
+                            <span style="font-size: 0.68rem; color: #0369a1; font-weight: 600;">Texturas / Monstruo</span>
+                        </div>
+                        <div class="card-name">Estilo Gráfico / Rayas o Manchas</div>
+                        <div class="card-desc">Rayas atigradas gruesas o manchas geométricas combinadas con boca traviesa.</div>
+                        <div class="render-img-box" style="flex-direction: column; background: #f8fafc; border: 2px dashed #cbd5e1; gap: 8px;">
+                            <div style="font-size: 2rem;">⚡</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Próximamente Render 2.5D</div>
+                        </div>
+                        <div class="palette-row">
+                            <div class="palette-chip" style="background: #f97316;" title="Naranja"></div>
                             <div class="palette-chip" style="background: #10b981;" title="Verde"></div>
-                            <div class="palette-chip" style="background: #f43f5e;" title="Rojo"></div>
                             <div class="palette-chip" style="background: #0f172a;" title="Negro"></div>
+                            <div class="palette-chip" style="background: #ffffff;" title="Dientes"></div>
                         </div>
-                        <div style="margin-top: 24px; font-size: 0.75rem; color: var(--text-muted); background: #f8fafc; padding: 14px; border-radius: 8px; border: 1px solid var(--border); line-height: 1.45;">
-                            💡 <strong>Tip de Pintado Posca:</strong><br>
-                            Usa la guía central de ojos y bocas. Primero dibuja la forma principal con plumón negro, deja secar 1 minuto y añade los brillos blancos.
-                        </div>
-                        <button onclick="selectCharacter(0)" style="margin-top: 20px; background: var(--primary-light); color: var(--primary); border: 1px solid #bae6fd; padding: 8px 14px; border-radius: 6px; font-weight: 600; font-size: 0.75rem; cursor: pointer;">
-                            ⬅ Ver ejemplos 2.5D de Dino Bebé 1
-                        </button>
+                        <ul class="tips-list">
+                            <li>Patrones geométricos con trazos gruesos y directos de Posca.</li>
+                            <li>Boca con colmillitos afilados para darle personalidad.</li>
+                        </ul>
                     </div>
                 `;
             }}
@@ -639,4 +636,4 @@ html_content = f'''<!DOCTYPE html>
 with open('pack_digitoys_12/05_acabado_color/estacion_05_acabado_color.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("estacion_05_acabado_color.html generated successfully!")
+print("estacion_05_acabado_color.html rebuilt with 3 bottom renders layout successfully!")
