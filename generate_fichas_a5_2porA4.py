@@ -60,7 +60,7 @@ def draw_single_card_a5(c, x_offset, svg_path):
     # Encabezado
     c.setFillColor(colors.HexColor("#111827"))
     c.setFont("Helvetica-Bold", 9.5)
-    c.drawString(x_offset + 14 * mm, card_h - 16 * mm, "FICHA DE FABRICACIÓN — DIGITOYS")
+    c.drawString(x_offset + 14 * mm, card_h - 16 * mm, "FICHA DE DISEÑO 2D — DIGITOYS")
     
     # Instrucciones
     c.setFont("Helvetica", 6.5)
@@ -168,7 +168,7 @@ def generate_fichas_duales_a4():
         # Encabezado
         c.setFillColor(colors.HexColor("#111827"))
         c.setFont("Helvetica-Bold", 11)
-        c.drawString(16 * mm, h_page - 15 * mm, "FICHA DE CREACIÓN & ACABADO — DIGITOYS")
+        c.drawString(16 * mm, h_page - 15 * mm, "FICHA DE DISEÑO 2D — DIGITOYS")
         
         # Campos superiores: NOMBRE DE TU DIGITOYS / CREADOR(A) / ACOMPAÑANTE
         c.setFont("Helvetica-Bold", 7.2)
