@@ -37,7 +37,7 @@ html_content = f'''<!DOCTYPE html>
         header {{
             background-color: var(--bg-card);
             border-bottom: 1px solid var(--border);
-            padding: 12px 28px;
+            padding: 10px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -45,27 +45,26 @@ html_content = f'''<!DOCTYPE html>
         }}
 
         .header-title h1 {{
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-title);
             letter-spacing: -0.02em;
         }}
 
         .header-title p {{
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
-            margin-top: 2px;
         }}
 
         .header-badges {{
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }}
 
         .badge {{
             font-size: 0.72rem;
             font-weight: 600;
-            padding: 4px 10px;
+            padding: 3px 10px;
             border-radius: 999px;
             background: #f1f5f9;
             color: var(--text-muted);
@@ -81,7 +80,7 @@ html_content = f'''<!DOCTYPE html>
         .main-layout {{
             flex: 1;
             display: grid;
-            grid-template-columns: 260px 1fr;
+            grid-template-columns: 240px 1fr;
             overflow: hidden;
         }}
 
@@ -90,28 +89,28 @@ html_content = f'''<!DOCTYPE html>
             background-color: var(--bg-card);
             border-right: 1px solid var(--border);
             overflow-y: auto;
-            padding: 14px;
+            padding: 12px;
         }}
 
         .sidebar-title {{
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             padding-left: 4px;
         }}
 
         .char-item {{
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 9px 12px;
+            gap: 10px;
+            padding: 8px 10px;
             border-radius: 8px;
             cursor: pointer;
             border: 1px solid transparent;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             transition: all 0.15s ease;
         }}
 
@@ -126,8 +125,8 @@ html_content = f'''<!DOCTYPE html>
         }}
 
         .char-item svg {{
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             flex-shrink: 0;
         }}
 
@@ -136,7 +135,7 @@ html_content = f'''<!DOCTYPE html>
         }}
 
         .char-item-name {{
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--text-title);
             white-space: nowrap;
@@ -149,133 +148,112 @@ html_content = f'''<!DOCTYPE html>
             font-weight: 700;
         }}
 
-        /* Columna 2: Canvas Principal (Silueta Superior + 3 Renders Horizontales Debajo) */
+        /* Columna 2: Canvas Principal */
         .main-content {{
-            padding: 20px 28px;
+            padding: 16px 24px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 14px;
         }}
 
-        /* Tarjeta Superior: Silueta + Ficha Rápida */
+        /* Tarjeta Superior Compacta: Solo Silueta + Título Limpio */
         .top-hero-card {{
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px 24px;
+            border-radius: 10px;
+            padding: 10px 18px;
             display: flex;
             align-items: center;
-            gap: 28px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            gap: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
             flex-shrink: 0;
         }}
 
         .silhouette-box {{
-            width: 150px;
-            height: 150px;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #f8fafc;
-            border-radius: 12px;
-            border: 2px dashed #cbd5e1;
-            padding: 10px;
+            border-radius: 8px;
+            border: 1.5px dashed #cbd5e1;
+            padding: 6px;
             flex-shrink: 0;
         }}
 
         .silhouette-box svg {{
             width: 100%;
             height: 100%;
-            max-width: 130px;
-            max-height: 130px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
+            max-width: 58px;
+            max-height: 58px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
         }}
 
         .hero-details {{
-            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }}
 
         .hero-title-row {{
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 6px;
+            gap: 12px;
         }}
 
         .hero-title {{
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 800;
             color: var(--text-title);
             letter-spacing: -0.01em;
         }}
 
         .hero-scale-badge {{
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: var(--primary);
             font-weight: 700;
             background: var(--primary-light);
-            padding: 4px 10px;
-            border-radius: 6px;
+            padding: 2px 8px;
+            border-radius: 4px;
             border: 1px solid #bae6fd;
         }}
 
-        .hero-description {{
-            font-size: 0.82rem;
-            color: var(--text-body);
-            line-height: 1.45;
-            margin-bottom: 12px;
-        }}
-
-        .hero-tags {{
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }}
-
-        .hero-tag {{
-            font-size: 0.72rem;
-            background: #f1f5f9;
+        .hero-subtitle {{
+            font-size: 0.78rem;
             color: var(--text-muted);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 500;
         }}
 
         /* Sección Inferior: 3 Renders en Fila Horizontal */
         .bottom-section {{
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             flex: 1;
         }}
 
-        .section-header {{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }}
-
         .section-title {{
-            font-size: 0.92rem;
+            font-size: 0.86rem;
             font-weight: 700;
             color: var(--text-title);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }}
 
         .cards-row-grid {{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 16px;
+            align-items: stretch;
         }}
 
         .render-card {{
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
@@ -292,7 +270,7 @@ html_content = f'''<!DOCTYPE html>
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }}
 
         .card-badge {{
@@ -309,7 +287,7 @@ html_content = f'''<!DOCTYPE html>
         .badge-monster {{ background: #e0f2fe; color: #0369a1; }}
 
         .card-name {{
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             font-weight: 700;
             color: var(--text-title);
             margin-bottom: 4px;
@@ -319,21 +297,21 @@ html_content = f'''<!DOCTYPE html>
             font-size: 0.74rem;
             color: var(--text-muted);
             line-height: 1.35;
-            margin-bottom: 12px;
-            min-height: 34px;
+            margin-bottom: 10px;
+            min-height: 32px;
         }}
 
-        /* Contenedor de la Imagen: RENDER COMPLETO SIN RECORTES */
+        /* Contenedor de la Imagen: RENDER COMPLETO Y MÁS GRANDE */
         .render-img-box {{
             width: 100%;
-            height: 220px;
+            height: 250px;
             background: #ffffff;
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             overflow: hidden;
             padding: 6px;
         }}
@@ -349,12 +327,12 @@ html_content = f'''<!DOCTYPE html>
         .palette-row {{
             display: flex;
             gap: 6px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }}
 
         .palette-chip {{
             flex: 1;
-            height: 22px;
+            height: 20px;
             border-radius: 4px;
             border: 1px solid rgba(0,0,0,0.12);
         }}
@@ -363,11 +341,11 @@ html_content = f'''<!DOCTYPE html>
             font-size: 0.72rem;
             color: #475569;
             padding-left: 16px;
-            line-height: 1.4;
+            line-height: 1.35;
         }}
 
         .tips-list li {{
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }}
     </style>
 </head>
@@ -379,7 +357,7 @@ html_content = f'''<!DOCTYPE html>
         </div>
         <div class="header-badges">
             <span class="badge">Altura: 70 mm</span>
-            <span class="badge">Espesor: 15 mm (Boleado)</span>
+            <span class="badge">Espesor: 15 mm</span>
             <span class="badge highlight">Marcadores Acrílicos Posca</span>
         </div>
     </header>
@@ -391,35 +369,26 @@ html_content = f'''<!DOCTYPE html>
             <div id="character-list"></div>
         </aside>
 
-        <!-- Columna 2: Canvas Principal (Silueta Superior + 3 Renders Horizontales Debajo) -->
+        <!-- Columna 2: Canvas Principal -->
         <main class="main-content">
-            <!-- Tarjeta Superior: Silueta + Ficha Rápida -->
+            <!-- Tarjeta Superior Compacta -->
             <div class="top-hero-card">
                 <div class="silhouette-box" id="silhouette-display">
-                    <!-- Inyectado por JS sin CORS -->
+                    <!-- Inyectado por JS -->
                 </div>
                 <div class="hero-details">
                     <div class="hero-title-row">
                         <div class="hero-title" id="current-name">01 Dino Bebé 1</div>
-                        <div class="hero-scale-badge">Escala Real 1:1 (70 mm)</div>
+                        <div class="hero-scale-badge">Escala 1:1 (70 mm)</div>
                     </div>
-                    <p class="hero-description" id="hero-desc">
-                        Silueta base 2.5D para impresión 3D con bordes redondeados infantiles ($R=1.2\text{{ mm}}$). Planifica el diseño de la carita en tu <strong>Ficha de Trabajo Dual</strong> con lápices antes de pintar sobre la pieza física con marcadores Posca.
-                    </p>
-                    <div class="hero-tags" id="hero-tags">
-                        <span class="hero-tag">📏 70 × 15 mm</span>
-                        <span class="hero-tag">🎨 Base recomendada: Blanco / Filamento Neutro</span>
-                        <span class="hero-tag">✨ Doble Boleado Suave</span>
-                    </div>
+                    <div class="hero-subtitle">Boceta primero tu diseño en la Ficha en papel y luego aplica color sobre la pieza 3D con plumones Posca.</div>
                 </div>
             </div>
 
             <!-- Sección Inferior: 3 Renders en Fila Horizontal -->
             <div class="bottom-section">
-                <div class="section-header">
-                    <div class="section-title">
-                        <span>🎨</span> Propuestas de Acabado 2.5D (Renders de Muestra)
-                    </div>
+                <div class="section-title">
+                    <span>🎨</span> 3 Opciones de Inspiración & Color
                 </div>
 
                 <div class="cards-row-grid" id="renders-container">
@@ -552,7 +521,7 @@ html_content = f'''<!DOCTYPE html>
                         <div class="card-name">Estilo Alien / Cíclope Pop</div>
                         <div class="card-desc">Un único ojo gigante central con iris brillante y pupila negra con doble reflejo.</div>
                         <div class="render-img-box" style="flex-direction: column; background: #f8fafc; border: 2px dashed #cbd5e1; gap: 8px;">
-                            <div style="font-size: 2rem;">👁️</div>
+                            <div style="font-size: 2.2rem;">👁️</div>
                             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Próximamente Render 2.5D</div>
                         </div>
                         <div class="palette-row">
@@ -573,9 +542,9 @@ html_content = f'''<!DOCTYPE html>
                             <span style="font-size: 0.68rem; color: #6d28d9; font-weight: 600;">2 Ojos Tiernos</span>
                         </div>
                         <div class="card-name">Estilo Amigable / 2 Ojos & Sonrisa</div>
-                        <div class="card-desc">Dos ojitos juntos y separados con expresión tierna, pecas y barriga de color.</div>
+                        <div class="card-desc">Dos ojitos juntos con expresión tierna, pecas y barriga de color contrastante.</div>
                         <div class="render-img-box" style="flex-direction: column; background: #f8fafc; border: 2px dashed #cbd5e1; gap: 8px;">
-                            <div style="font-size: 2rem;">👀</div>
+                            <div style="font-size: 2.2rem;">👀</div>
                             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Próximamente Render 2.5D</div>
                         </div>
                         <div class="palette-row">
@@ -598,7 +567,7 @@ html_content = f'''<!DOCTYPE html>
                         <div class="card-name">Estilo Gráfico / Rayas o Manchas</div>
                         <div class="card-desc">Rayas atigradas gruesas o manchas geométricas combinadas con boca traviesa.</div>
                         <div class="render-img-box" style="flex-direction: column; background: #f8fafc; border: 2px dashed #cbd5e1; gap: 8px;">
-                            <div style="font-size: 2rem;">⚡</div>
+                            <div style="font-size: 2.2rem;">⚡</div>
                             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Próximamente Render 2.5D</div>
                         </div>
                         <div class="palette-row">
@@ -636,4 +605,4 @@ html_content = f'''<!DOCTYPE html>
 with open('pack_digitoys_12/05_acabado_color/estacion_05_acabado_color.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("estacion_05_acabado_color.html rebuilt with 3 bottom renders layout successfully!")
+print("Clean minimal header applied to estacion_05_acabado_color.html!")
