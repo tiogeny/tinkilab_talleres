@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 793.70 1122.52" width="210mm" height="297mm">
+  <g id="SCORE_AZUL" stroke="#0000ff" stroke-width="0.5" fill="none">
+    <!-- Dobleces horizontales -->
+    <line x1="245.67" y1="944.88" x2="548.03" y2="944.88" />
+    <line x1="245.67" y1="880.63" x2="548.03" y2="880.63" />
+    <line x1="245.67" y1="578.27" x2="548.03" y2="578.27" />
+    <line x1="245.67" y1="514.02" x2="548.03" y2="514.02" />
+    <line x1="245.67" y1="211.65" x2="548.03" y2="211.65" />
+    <!-- Dobleces verticales -->
+    <line x1="245.67" y1="880.63" x2="245.67" y2="578.27" />
+    <line x1="548.03" y1="880.63" x2="548.03" y2="578.27" />
+    <line x1="181.42" y1="880.63" x2="181.42" y2="578.27" />
+    <line x1="612.28" y1="880.63" x2="612.28" y2="578.27" />
+    <line x1="245.67" y1="514.02" x2="245.67" y2="211.65" />
+    <line x1="548.03" y1="514.02" x2="548.03" y2="211.65" />
+    <!-- Recuadro para escribir nombre -->
+    <rect x="275.91" y="230.55" width="241.89" height="41.57" />
+  </g>
+  <g id="CUT_ROJO" stroke="#ff0000" stroke-width="0.8" fill="none">
+    <!-- Ventana -->
+    <rect x="306.14" y="287.24" width="181.42" height="207.87" rx="22.68" stroke="#ff0000" stroke-width="0.8" fill="none" />
+    <!-- Cortes de liberación -->
+    <line x1="245.67" y1="944.88" x2="181.42" y2="944.88" />
+    <line x1="548.03" y1="944.88" x2="612.28" y2="944.88" />
+    <line x1="245.67" y1="578.27" x2="181.42" y2="578.27" />
+    <line x1="548.03" y1="578.27" x2="612.28" y2="578.27" />
+  </g>
+</svg>

@@ -10,19 +10,23 @@ Colección de 12 personajes oficiales (siluetas vectoriales SVG y modelos 3D STL
 tinkilab_talleres/
 ├── pack_digitoys_12/
 │   ├── 01_siluetas_svg/               # 12 Siluetas vectoriales limpias (curvas Bézier pulidas en Inkscape)
-│   ├── 02_modelos_stl_10mm/           # 12 Modelos 3D STL (70 mm altura, 10 mm grosor, doble boleado simétrico)
-│   ├── 03_plantillas_impresion_pdf/   # Plantillas en PDF tamaño A4 (bandera blanca / neutrales):
-│   │   ├── 01_catalogo_seleccion_12_A4.pdf
-│   │   ├── 02_hojas_trabajo_diseno_12_A4.pdf
+│   ├── 02_modelos_stl_10mm/           # 12 Modelos 3D STL estándar (70x10 mm, doble boleado simétrico)
+│   ├── 02_modelos_stl_15mm/           # 12 Modelos 3D STL gruesos de alta estabilidad (70x15 mm, doble boleado)
+│   ├── 03_plantillas_impresion_pdf/   # Plantillas en PDF bandera blanca:
+│   │   ├── fichas_trabajo_A5_imprimir.pdf  # Fichas ágiles (2 por A4, solo negro para escanear)
+│   │   ├── fichas_trabajo_A4_dual.pdf      # Fichas completas A4 (Izquierda: Negro / Derecha: Color)
 │   │   └── 03_plantilla_diseno_libre_A4.pdf
-│   ├── 04_packaging_box/              # Plantilla plegable de caja para empaque (80x80x16 mm) en PDF y SVG
-│   ├── 05_acabado_color/              # Estación 05: Guía web de color, pasos de pintura y galería con IA
+│   ├── 04_packaging_box/              # Cajas láser (80x80x17 mm) en PDF y SVG (Rojo corte / Azul marcado)
+│   │   ├── caja_laser_80x80x17.pdf / .svg                 # Versión Universal con ventana
+│   │   └── caja_laser_80x80x17_01_Dino_Bebe_1.pdf / .svg # Ventana con silueta troquelada alineada
+│   ├── 05_acabado_color/              # Estación 05: Guía web con biblioteca de rasgos y fotos 2.5D
 │   ├── 01_lamina_siluetas_12.png      # Lámina general de siluetas 2D
 │   ├── preview_3d_pack12.png          # Vista previa 3D con doble curvatura
 │   └── visor_3d_pack12.html           # Visor interactivo WebGL (Three.js)
-├── generate_packaging_box.py          # Generador de dieline de caja de empaque
-├── generate_printable_worksheets.py   # Generador de hojas de trabajo y catálogo PDF
-├── generate_stls_10mm.py              # Generador automatizado de modelos 3D STL
+├── generate_fichas_a5_2porA4.py       # Generador de fichas A5 y duales A4
+├── generate_laser_packaging_box_17mm.py # Generador de cajas para corte láser
+├── generate_stls_10mm.py              # Generador de modelos 3D STL (10 mm)
+├── generate_stls_15mm.py              # Generador de modelos 3D STL (15 mm alta estabilidad)
 └── README.md
 ```
 
@@ -31,11 +35,13 @@ tinkilab_talleres/
 ## 📐 Especificaciones de los Modelos 3D STL
 
 - **Altura física ($Y$):** $70.0\text{ mm}$ ($7\text{ cm}$).
-- **Espesor total ($Z$):** $10.0\text{ mm}$ ($1\text{ cm}$).
+- **Espesor disponible:**
+  - **Colección 10 mm (`02_modelos_stl_10mm`):** Espesor $10.0\text{ mm}$ (ligero, ~25-35g PLA).
+  - **Colección 15 mm (`02_modelos_stl_15mm`):** Espesor $15.0\text{ mm}$ (alta estabilidad en mesa, huella plana de $12.6\text{ mm}$).
 - **Doble boleado simétrico:**
   - **Inferior ($Z = 0.0$ a $1.2\text{ mm}$):** Filete curvo con radio $R = 1.2\text{ mm}$ para un despegue y tacto suave.
-  - **Cuerpo central ($Z = 1.2$ a $8.8\text{ mm}$):** Pared vertical de $7.6\text{ mm}$.
-  - **Superior ($Z = 8.8$ a $10.0\text{ mm}$):** Filete curvo con radio $R = 1.2\text{ mm}$ que cierra en la cara superior plana.
+  - **Cuerpo central:** Pared vertical recta.
+  - **Superior:** Filete curvo con radio $R = 1.2\text{ mm}$ que cierra en la cara superior plana.
 - **Topología de malla:** $100\%$ Manifold / Watertight (Euler characteristic = 2), sin huecos ni caras invertidas.
 - **Orientación de impresión:** Acostados sobre la cama de impresión (eje $Z$).
 
